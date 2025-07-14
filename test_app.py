@@ -15,6 +15,13 @@ def test_multiply():
         assert response.json["result"] == 6
 
 
+def test_multiply_invalid_input():
+    with app.test_client() as client:
+        response = client.get("/multiply?b=5")
+        assert response.status_code == 400
+        assert "error" in response.json
+
+
 def test_divide():
     with app.test_client() as client:
         response = client.get("/divide?a=6&b=2")
