@@ -69,5 +69,16 @@ Response: { "result": 12.0 }
 - Github Actions
 - flake8
 
+## TODO
+- [x] /divide endpoint with input validation
+- [x] Return 400 if division by zero
+- [x] Add test for /divide
+- [ ] Add negative test case for /multiply
+
+##  Ideas:
+- Add `/health` route
+- Add logging
+- Dockerize the app
+ 
 ## Author
 Developed by Ezmert13 as part of a DevOps learning journey.
