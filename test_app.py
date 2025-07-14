@@ -48,3 +48,10 @@ def test_subtract_invalid_input():
         response = client.get("/divide?a=x&b=3")
         assert response.status_code == 400
         assert "error" in response.json
+
+
+def test_health_check():
+    with app.test_client() as client:
+        response = client.get("/health")
+        assert response.status_code == 200
+        assert response.json == {"status": "ok"}
