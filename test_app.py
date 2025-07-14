@@ -46,5 +46,5 @@ def test_subtract():
 def test_subtract_invalid_input():
     with app.test_client() as client:
         response = client.get("/divide?a=x&b=3")
-        assert response.status_code = 400
+        assert response.status_code == 400
         assert "error" in response.json
