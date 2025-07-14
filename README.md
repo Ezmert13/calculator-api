@@ -39,14 +39,14 @@ Workflow file: `.github/workflows/python-ci.yml'
 
 ## Project structure
 
-`
+```
 .
 ├── app.py                # Main Flask application
 ├── test_app.py           # Unit tests for API
 ├── requirements.txt      # Project dependencies
 └── .github/workflows/
     └── python-ci.yml     # GitHub Actions CI configuration
-`
+```
 
 ## Code style
 We use PEP* and flake8 for formatting.
