@@ -9,6 +9,7 @@ A minimalistic calculator REST API built with **Python** and **Flask**, develope
 - `GET /add?a=2&b=3` → Returns the sum of `a` and `b`
 - `GET /multiply?a=2&b=3` → Returns the product of `a` and `b`
 - `GET /divide?a=6&b=2` → Returns the result of `a / b`
+- `GET /subtract?a=4&b=2` → Returns the result of `a - b`
 
 All routes include:
 - Input validation
@@ -73,12 +74,14 @@ Response: { "result": 12.0 }
 - [x] /divide endpoint with input validation
 - [x] Return 400 if division by zero
 - [x] Add test for /divide
+- [x] Add /subtract endpoint
+- [x] Add tests for /subtract
 - [ ] Add negative test case for /multiply
 
-##  Ideas:
-- Add `/health` route
-- Add logging
-- Dockerize the app
+##  What's next:
+- Implement `/health` endpoint
+- Add logging to all routes
+- Containerize the application with Docker
  
 ## Author
 Developed by Ezmert13 as part of a DevOps learning journey.
