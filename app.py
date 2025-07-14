@@ -13,8 +13,12 @@ def add():
 @app.route("/multiply")
 def multiply():
     try:
-        a = float(request.args.get("a", 0))
-        b = float(request.args.get("b", 0))
+        a = request.args.get("a")
+        b = request.args.get("b")
+        if a is None or b is None:
+            return jsonify(error="Missing input"), 400
+        a = float(a)
+        b = float(b)
         return jsonify(result=a * b)
     except (TypeError, ValueError):
         return jsonify(error="invalid input"), 400
