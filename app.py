@@ -10,7 +10,7 @@ def add():
     return jsonify(result=a + b)
 
 
-@app.route("multiply")
+@app.route("/multiply")
 def multiply():
     a = float(request.args.get("a", 0))
     b = float(request.args.get("b", 0))
