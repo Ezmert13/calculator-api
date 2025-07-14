@@ -1,13 +1,25 @@
+import logging
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 @app.route("/add")
 def add():
-    a = float(request.args.get("a", 0))
-    b = float(request.args.get("b", 0))
-    return jsonify(result=a + b)
+    try:
+        a = request.args.get("a")
+        b = request.args.get("b")
+        if a is None or b is None:
+            logger.warning("/add missing input")
+            return jsonify(error="Missing input"), 400
+        a = float(a)
+        b = float(b)
+        logger.info(f"/add called with a={a}, b={b}, result={result}")
+        return jsonify(result=a + b)
+    except (TypeError, ValueError):
+        logger.warning("/add invalid input")
+        return jsonify(error="Invalid input"), 400
 
 
 @app.route("/multiply")
@@ -16,33 +28,47 @@ def multiply():
         a = request.args.get("a")
         b = request.args.get("b")
         if a is None or b is None:
+            logger.warning("/multiply missing input")
             return jsonify(error="Missing input"), 400
         a = float(a)
         b = float(b)
+        logger.info(f"/multiply called with a={a}, b={b}, result={result}")
         return jsonify(result=a * b)
     except (TypeError, ValueError):
+        logger.warning("\multiply invalid input")
         return jsonify(error="invalid input"), 400
 
 
 @app.route("/divide")
 def divide():
     try:
-        a = float(request.args.get("a"))
-        b = float(request.args.get("b"))
+        a = request.args.get("a")
+        b = request.args.get("b")
+        if a is None or b is None:
+            logger.warning("/divide missing input")
+            return jsonify(error="Missing input"), 400
         if b == 0:
+            logger.warning("/dovode Cannot divide by zero")
             return jsonify(error="Cannot divide by zero"), 400
+        logger.info(f"/divide called with a={a}, b={b}, result={result}")
         return jsonify(result=a / b)
     except (TypeError, ValueError):
+        logger.warning("/divide Invalid input")
         return jsonify(error="Invalid input"), 400
 
 
 @app.route("/subtract")
 def subtract():
     try:
-        a = float(request.args.get("a"))
-        b = float(request.args.get("b"))
+        a = request.args.get("a")
+        b = request.args.get("b")
+        if a is None or b is None:
+            logger.warning("/subtract Missing input")
+            return jsonify(error="Missing input"), 400
+        logger.info(f"/subtract called with a={a}, b={b}, result={result}")
         return jsonify(result=a - b)
     except (TypeError, ValueError):
+        logger.warning("/subtract Invalid Input")
         return jsonify(error="Invalid input"), 400
 
 
