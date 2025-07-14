@@ -5,6 +5,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 @app.route("/add")
 def add():
     try:
