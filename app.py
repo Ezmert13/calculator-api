@@ -21,7 +21,7 @@ def multiply():
 def divide():
     try:
         a = float(request.args.get("a"))
-        b = floatrequest.args.get("b"))
+        b = float(request.args.get("b"))
         if b == 0:
             return jsonify(error="Cannot divide by zero"), 400
         return jsonify(result=a / b)
