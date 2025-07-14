@@ -79,8 +79,8 @@ Response: { "result": 12.0 }
 - [x] Add tests for /subtract
 - [x] Add negative test case for /multiply
 - [x] Implement `/health` endpoint
+- [x] Add logging to all routes
 ##  What's next:
-- Add logging to all routes
 - Containerize the application with Docker
  
 ## Author
