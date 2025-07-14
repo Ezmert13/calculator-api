@@ -52,6 +52,8 @@ def divide():
         if b == 0:
             logger.warning("/divide Cannot divide by zero")
             return jsonify(error="Cannot divide by zero"), 400
+        a = float(a)
+        b = float(b)
         result = a / b
         logger.info(f"/divide called with a={a}, b={b}, result={result}")
         return jsonify(result=result)
@@ -80,7 +82,23 @@ def subtract():
 
 @app.route("/health", methods=["GET"])
 def health_check():
-    return jsonify({"status": "ok"}), 200
+    return jsonify({"status": "ok"})@app.route("/divide")
+def divide():
+    try:
+        a = request.args.get("a")
+        b = request.args.get("b")
+        if a is None or b is None:
+            logger.warning("/divide missing input")
+            return jsonify(error="Missing input"), 400
+        if b == 0:
+            logger.warning("/divide Cannot divide by zero")
+            return jsonify(error="Cannot divide by zero"), 400
+        result = a / b
+        logger.info(f"/divide called with a={a}, b={b}, result={result}")
+        return jsonify(result=result)
+    except (TypeError, ValueError):
+        logger.warning("/divide Invalid input")
+        return jsonify(error="Invalid input"), 400, 200
 
 
 if __name__ == "__main__":
