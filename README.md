@@ -33,7 +33,7 @@ Test coverage includes:
 ## CI/CD
 GitHub Actions is configured to:
 - Run tests on every push
-- Enforce code style with fllake8
+- Enforce code style with flake8
 - Fail builds on syntax/style/test errors
 
 Workflow file: `.github/workflows/python-ci.yml'
@@ -50,7 +50,7 @@ Workflow file: `.github/workflows/python-ci.yml'
 ```
 
 ## Code style
-We use PEP* and flake8 for formatting.
+We use PEP8 and flake8 for formatting.
 To check style locally:
 `flake8 .`
 
@@ -59,10 +59,10 @@ To check style locally:
 1. Run the app:
 `python app.py`
 2. Send a request:
-`
+```
 GET /multiply?a=3&b=4
 Response: { "result": 12.0 }
-`
+```
 ## Built with
 - Python 3.10+
 - Flask
