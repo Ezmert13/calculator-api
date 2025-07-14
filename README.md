@@ -77,7 +77,7 @@ Response: { "result": 12.0 }
 - [x] Add test for /divide
 - [x] Add /subtract endpoint
 - [x] Add tests for /subtract
-- [ ] Add negative test case for /multiply
+- [x] Add negative test case for /multiply
 - [x] Implement `/health` endpoint
 ##  What's next:
 - Add logging to all routes
