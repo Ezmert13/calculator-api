@@ -17,5 +17,17 @@ def multiply():
     return jsonify(result=a * b)
 
 
+@app.route("/divide")
+def divide():
+    try:
+        a = float(request.args.get("a"))
+        b = float(request.args.get("b"))
+        if b == 0:
+            return jsonify(error="Cannot divide by zero"), 400
+        return jsonify(result=a / b)
+    except (TypeError, ValueError):
+        return jsonify(error="Invalid input"), 400
+
+
 if __name__ == "__main__":
     app.run(debug=True)
