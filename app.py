@@ -29,5 +29,15 @@ def divide():
         return jsonify(error="Invalid input"), 400
 
 
+@app.route("/subtract")
+def subtract():
+    try:
+        a = float(request.args.get("a"))
+        b = float(request.args.get("b"))
+        return jsonify(result=a - b)
+    except (TypeError, ValueError):
+        return jsonify(error="Invalid input"), 400
+
+
 if __name__ == "__main__":
     app.run(debug=True)
