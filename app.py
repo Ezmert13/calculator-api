@@ -15,8 +15,9 @@ def add():
             return jsonify(error="Missing input"), 400
         a = float(a)
         b = float(b)
+        result = a + b
         logger.info(f"/add called with a={a}, b={b}, result={result}")
-        return jsonify(result=a + b)
+        return jsonify(result)
     except (TypeError, ValueError):
         logger.warning("/add invalid input")
         return jsonify(error="Invalid input"), 400
@@ -32,8 +33,9 @@ def multiply():
             return jsonify(error="Missing input"), 400
         a = float(a)
         b = float(b)
+        result = a * b
         logger.info(f"/multiply called with a={a}, b={b}, result={result}")
-        return jsonify(result=a * b)
+        return jsonify(result)
     except (TypeError, ValueError):
         logger.warning("/multiply invalid input")
         return jsonify(error="invalid input"), 400
@@ -50,8 +52,9 @@ def divide():
         if b == 0:
             logger.warning("/divide Cannot divide by zero")
             return jsonify(error="Cannot divide by zero"), 400
+        result = a / b
         logger.info(f"/divide called with a={a}, b={b}, result={result}")
-        return jsonify(result=a / b)
+        return jsonify(result)
     except (TypeError, ValueError):
         logger.warning("/divide Invalid input")
         return jsonify(error="Invalid input"), 400
@@ -65,8 +68,11 @@ def subtract():
         if a is None or b is None:
             logger.warning("/subtract Missing input")
             return jsonify(error="Missing input"), 400
+        a = float(a)
+        b = float(b)
+        result = a - b
         logger.info(f"/subtract called with a={a}, b={b}, result={result}")
-        return jsonify(result=a - b)
+        return jsonify(result)
     except (TypeError, ValueError):
         logger.warning("/subtract Invalid Input")
         return jsonify(error="Invalid input"), 400
