@@ -89,8 +89,7 @@ docker run -p 5000:5000 calculator-api
 - [x] Add negative test case for /multiply
 - [x] Implement `/health` endpoint
 - [x] Add logging to all routes
-##  What's next:
-- Containerize the application with Docker
+- [x] Containerize the application with Docker
  
 ## Author
 Developed by Ezmert13 as part of a DevOps learning journey.
