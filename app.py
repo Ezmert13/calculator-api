@@ -35,7 +35,7 @@ def multiply():
         logger.info(f"/multiply called with a={a}, b={b}, result={result}")
         return jsonify(result=a * b)
     except (TypeError, ValueError):
-        logger.warning("\multiply invalid input")
+        logger.warning("/multiply invalid input")
         return jsonify(error="invalid input"), 400
 
 
@@ -48,7 +48,7 @@ def divide():
             logger.warning("/divide missing input")
             return jsonify(error="Missing input"), 400
         if b == 0:
-            logger.warning("/dovode Cannot divide by zero")
+            logger.warning("/divide Cannot divide by zero")
             return jsonify(error="Cannot divide by zero"), 400
         logger.info(f"/divide called with a={a}, b={b}, result={result}")
         return jsonify(result=a / b)
