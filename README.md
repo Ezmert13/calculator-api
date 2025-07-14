@@ -10,6 +10,7 @@ A minimalistic calculator REST API built with **Python** and **Flask**, develope
 - `GET /multiply?a=2&b=3` → Returns the product of `a` and `b`
 - `GET /divide?a=6&b=2` → Returns the result of `a / b`
 - `GET /subtract?a=4&b=2` → Returns the result of `a - b`
+- `GET /health' → Returns simple service status (200 OK)
 
 All routes include:
 - Input validation
