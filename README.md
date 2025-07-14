@@ -64,6 +64,15 @@ To check style locally:
 GET /multiply?a=3&b=4
 Response: { "result": 12.0 }
 ```
+
+### Run with Docker
+
+Build and run the container:
+```
+docker build -t calculator-api .
+docker run -p 5000:5000 calculator-api
+```
+
 ## Built with
 - Python 3.10+
 - Flask
