@@ -81,6 +81,24 @@ def subtract():
         return jsonify(error="Invalid input"), 400
 
 
+@app.route("/sum-list")
+def sum_list():
+    try:
+        numbers_raw = request.args.get("numbers")
+        if not numbers_raw:
+            return jsonify(error="Missing input"), 400
+
+        numbers_list = numbers_raw.split(",")
+        if len(numbers_list) < 2:
+            return jsonify(error="Numbers with 1 element."), 400
+        if not numbers_list:
+            return jsonify(error="Empty list"), 400
+        numbers = [float(n) for n in numbers_list]
+        return jsonify(result=sum(numbers))
+    except (TypeError, ValueError):
+        logger.warning("/sum-list Invalid Input")
+        return jsonify(error="Invalid Input"), 400
+
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "ok"}), 200

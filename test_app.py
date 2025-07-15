@@ -57,6 +57,13 @@ def test_subtract_invalid_input():
         assert "error" in response.json
 
 
+def test_sum_list():
+    with app.test_client() as client:
+        response = client.get("/sum-list?numbers=1,2,3,4,5")
+        assert response.status_code == 200
+        assert response.json["result"] == 15
+
+
 def test_health_check():
     with app.test_client() as client:
         response = client.get("/health")
