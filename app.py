@@ -99,6 +99,7 @@ def sum_list():
         logger.warning("/sum-list Invalid Input")
         return jsonify(error="Invalid Input"), 400
 
+
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "ok"}), 200
