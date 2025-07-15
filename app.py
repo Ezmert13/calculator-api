@@ -105,7 +105,6 @@ def health_check():
     return jsonify({"status": "ok"}), 200
 
 
-
 @app.route("/ping", methods=["GET"])
 def ping():
     return jsonify(message="pong"), 200
