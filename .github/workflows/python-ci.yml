@@ -26,6 +26,7 @@ jobs:
 
       - name: Run tests
         run: |
+          export PYTHONPATH=.
           source venv/bin/activate
           pytest --cov=.
 
