@@ -105,6 +105,15 @@ def health_check():
     return jsonify({"status": "ok"}), 200
 
 
+@app.route("/files")
+def list_files():
+    files = []
+    for root, dirs, filenames in os.walk("."):
+        for f in filenames:
+            files.append(os.path.join(root, f))
+    return jsonify(files=files)
+
+
 @app.route("/ping", methods=["GET"])
 def ping():
     return jsonify(message="pong"), 200
